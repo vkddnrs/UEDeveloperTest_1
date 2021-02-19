@@ -2,7 +2,7 @@
 #include <string>
 #include <conio.h>
 
-char* string_conversion(char* str);
+char* string_conversion(char* _str);
 
 int main()
 {
@@ -28,10 +28,10 @@ int main()
 
 
 
-char* string_conversion(char* str)
+char* string_conversion(char* _str)
 {
-	unsigned int size = strlen(str);
-	_strlwr_s(str, size + 1); // convert the string to lowercase
+	unsigned int size = strlen(_str);
+	_strlwr_s(_str, size + 1); // convert the string to lowercase
 	
 	// since the input string can contain characters ')' and '(', we use an additional array
 	char* t_str = new char[size + 1]();	
@@ -48,7 +48,7 @@ char* string_conversion(char* str)
 			if (t_str[j] == ')') // everything has already been done for this array element
 				continue;
 
-			if (str[j] == str[i])
+			if (_str[j] == _str[i])
 			{
 				is_character_repeats = true;
 				t_str[j] = ')'; // characters repeating the current character from the beginning of the array
@@ -59,9 +59,9 @@ char* string_conversion(char* str)
 	}
 
 	for (int i = 0; i < size; i++)
-		str[i] = t_str[i];
+		_str[i] = t_str[i];
 	
 	delete[] t_str;
-	return str;
+	return _str;
 }
 
