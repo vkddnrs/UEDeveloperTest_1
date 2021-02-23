@@ -4,6 +4,8 @@
 
 char* string_conversion(char* _str);
 
+std::ostream operator<<(const std::ostream& lhs, const std::ostream& rhs);
+
 int main()
 {
 	char* str = new char;
@@ -12,13 +14,14 @@ int main()
 	
 	do	
 	{
+		cout << "*********************************" << endl;
 		cout << "Enter the line and press \"Enter\"" << endl;
 		cin.getline(str, 256);
 		str[strlen(str) + 1] = '\0';
 		cout << "\"" << str << "\" => \"";
 		cout << string_conversion(str) << "\"" << endl;
 
-		cout << "Continue? (y(es)/n(o))" << endl;
+		cout << "Continue? (y(es)/n(o))" << endl << endl;
 		choice = _getch();
 		
 	} while (choice == 'y');
